@@ -9,3 +9,9 @@ def show_homepage():
     print("---------------------------------------")
 
 show_homepage()
+
+def donate(username):
+    donation_amt = input("Enter amount to donate:")
+    donation_string = "{username} donated {donation_amt}"
+    print("Thank you for your donation!")
+    return donation_string
