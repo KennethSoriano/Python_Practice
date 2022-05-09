@@ -1,4 +1,9 @@
-from donations_pkg.homepage import show_homepage, donate
+# File Name: app.py
+# About: This is an application that uses the donation package to process a users donations and account information
+
+
+
+from donations_pkg.homepage import show_homepage, donate, show_donations
 from donations_pkg.user import login, register
 
 database = { "admin": "password123"}
@@ -13,12 +18,12 @@ while True:
     else:
         print("Logged in as:", authorized_user)
 
-    option = input("Choose an option:")
+    option = input("Choose an option between 1-5: ")
     if option == "1":
         username = input("\nEnter username:")
         password = input("Enter Password:")
         authorized_user = login(database, username, password)
-    if option == "2":
+    elif option == "2":
         username = input("\nEnter username:")
         password = input("Enter Password:")
         authorized_user = register(database, username)
@@ -31,9 +36,9 @@ while True:
             donation_string = donate(authorized_user)
             donations.append(donation_string)
     elif option == "4":
-        print("TODO: Write Show Donations Functionality")
+        show_donations(donations)
     elif option == "5":
         print("Goodbye!")
         break
     else:
-        print("Please choose valid option!")
+        print("\nPlease choose valid option!")
