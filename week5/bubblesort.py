@@ -11,8 +11,12 @@ def bubblesort(the_list):
             if item > next:
                 the_list[j] = next
                 the_list[j+1] = item
+                list_changed = True
 
             print(the_list, i ,j)
+        print(list_changed)
+        if list_changed == False:
+            break
 
 
 
